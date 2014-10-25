@@ -34,7 +34,7 @@ Pebble.addEventListener("webviewclosed", function(e) {
     if ((typeof e.response === 'string') && (e.response.length > 0)) {
         var newSettings = decodeURIComponent(e.response);
         var newSettingsDictionary = JSON.parse(newSettings);
-	console.log("Fikk settings: " + newSettingsDictionary);
+//	console.log("Fikk settings: " + newSettingsDictionary);
         var diffSettings = diff(newSettingsDictionary, JSON.parse(localStorage['norsk']));
         
         localStorage['norsk'] = newSettings;

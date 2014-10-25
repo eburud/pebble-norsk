@@ -7,6 +7,8 @@
 
 #define KLOKKAER_PKEY 0
 bool getKlokkaer();
+#define VISDATO_PKEY 1
+bool getVisdato();
 
 
 void autoconfig_in_received_handler(DictionaryIterator *iter, void *context); 

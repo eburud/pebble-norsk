@@ -7,6 +7,9 @@
 bool _klokkaer;
 bool getKlokkaer(){return _klokkaer;}
 void setKlokkaer(bool value){_klokkaer = value;}
+bool _visdato;
+bool getVisdato(){return _visdato;}
+void setVisdato(bool value){_visdato = value;}
 
 
 void autoconfig_in_received_handler(DictionaryIterator *iter, void *context) {
@@ -14,6 +17,8 @@ void autoconfig_in_received_handler(DictionaryIterator *iter, void *context) {
 	
 	tuple = dict_find(iter, KLOKKAER_PKEY);
 	tuple ? setKlokkaer(tuple->value->int32) : false;
+	tuple = dict_find(iter, VISDATO_PKEY);
+	tuple ? setVisdato(tuple->value->int32) : false;
 	
 }
 
@@ -28,6 +33,12 @@ void autoconfig_init(){
 	else {
 		setKlokkaer(true);
 	}
+	if (persist_exists(VISDATO_PKEY)) {
+		setVisdato(persist_read_bool(VISDATO_PKEY));
+	}
+	else {
+		setVisdato(true);
+	}
 
 	
 }
@@ -35,4 +46,5 @@ void autoconfig_init(){
 void autoconfig_deinit(){
 	
 	persist_write_bool(KLOKKAER_PKEY, _klokkaer);
+	persist_write_bool(VISDATO_PKEY, _visdato);
 }

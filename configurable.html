@@ -276,6 +276,23 @@ div.clear {
 						</script>
 					</div>
 				</fieldset>
+				<fieldset>
+					<div class="pure-control-group">
+						<h4>Vis dato</h4>
+						<div class="description"></div>
+						<label for="visdato" class="pure-radio">
+							<input id="visdato" type="radio" name="visdato" value="1">
+							Ja
+						</label>
+						<label for="visdato-off" class="pure-radio">
+							<input id="visdato-off" type="radio" name="visdato" value="0" data-exclude checked>
+							Nei
+						</label>
+						<script type="text/javascript">
+						document.querySelector("#visdato").checked = true;
+						</script>
+					</div>
+				</fieldset>
 				<div class="buttons">
 					<button id="save" class="pure-button pure-button-primary" type="submit">Save</button>
 					<button id="cancel" class="pure-button" type="reset">Cancel</button>
